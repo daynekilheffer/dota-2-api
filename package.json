@@ -1,0 +1,21 @@
+{
+  "name": "dota-2-api",
+  "version": "0.0.1",
+  "description": "dota 2 api",
+  "main": "dota2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daynekilheffer/dota-2-api.git"
+  },
+  "author": "dayne kilheffer",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/daynekilheffer/dota-2-api/issues"
+  },
+  "dependencies": {
+    "request": "~2.27.0"
+  }
+}
