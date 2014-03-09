@@ -17,5 +17,15 @@ describe('Dota2Client instance', function () {
             expect(history._apiName).toBe('GetMatchHistory');
             expect(history._version).toBe('v1');
         });
+        it('should define setter methods', function () {
+            var history = client.matchHistory();
+            expect(typeof history.playerName).toBe('function');
+        });
+        describe('then()', function () {
+            it('should exist', function () {
+                var history = client.matchHistory();
+                expect(typeof history.then).toBe('function');
+            });
+        });
     });
 });
