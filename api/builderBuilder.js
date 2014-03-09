@@ -1,6 +1,7 @@
 var ApiBuilder = require('./builder');
 
-function ApiBuilderBuilder() {
+function ApiBuilderBuilder(steam) {
+    this._steam = steam;
     this._methods = [];    
 }
 
@@ -26,6 +27,7 @@ ApiBuilderBuilder.prototype.addMethod = function (methodName, apiName) {
 
 ApiBuilderBuilder.prototype.build = function () {
     var builder = new ApiBuilder();
+    builder._steam = this._steam;
     builder._gameName = this._gameName;
     builder._gameId = this._gameId;
     builder._apiName = this._apiName;
