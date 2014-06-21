@@ -38,4 +38,11 @@ Dota2Client.prototype.matchDetails= function () {
     return builder.build();
 }
 
+Dota2Client.prototype.leagueListing = function () {
+    var builder = createNewBuilder.apply(this);
+    builder.apiName('GetLeagueListing');
+    builder.version('v1');
+    return builder.build();
+}
+
 module.exports = Dota2Client;
