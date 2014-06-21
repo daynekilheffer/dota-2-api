@@ -7,7 +7,6 @@ ApiBuilder.prototype.then = function (callback) {
         fullApiName = this._apiName + '/' + this._version;
 
     this._steam.execute(fullGameName, fullApiName, this._parameters, function(error, body) {
-        console.log(body);
         callback(error, body);
     });
 };
