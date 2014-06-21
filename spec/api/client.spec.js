@@ -19,7 +19,7 @@ describe('Dota2Client instance', function () {
         });
         it('should define setter methods', function () {
             var history = client.matchHistory();
-            expect(typeof history.playerName).toBe('function');
+            expect(typeof history.accountId).toBe('function');
         });
         describe('then()', function () {
             it('should exist', function () {
