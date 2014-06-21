@@ -1,12 +1,11 @@
+var Dota2Client = require('./api/client');
 
-
-function Dota2Api(steam, config) {
-    config = config || {};
-    this.steamApi = steam;
-    this.id = config.dota2id || 570;
+function clientFactory(config) {
+    return new Dota2Client(config);
 }
 
-Dota2Api.prototype.matchDetails = require('./api/match.details');
-Dota2Api.prototype.matchHistory = require('./api/match.history');
 
-module.exports = Dota2Api;
+module.exports = {
+    steam : require('./lib/steam-web-api'),
+    client : clientFactory
+};
