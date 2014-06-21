@@ -7,6 +7,6 @@ var client = new dota.client({
     steam: steamClient
 });
 
-client.matchHistory().playerName('dayne').then(function(error, body) {
+client.matchHistory().accountId(140802608).then(function(error, body) {
     console.log(body);
 });
