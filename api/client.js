@@ -45,4 +45,11 @@ Dota2Client.prototype.leagueListing = function () {
     return builder.build();
 }
 
+Dota2Client.prototype.liveLeagueGames = function () {
+    var builder = createNewBuilder.apply(this);
+    builder.apiName('GetLiveLeagueGames');
+    builder.version('v1');
+    return builder.build();
+}
+
 module.exports = Dota2Client;

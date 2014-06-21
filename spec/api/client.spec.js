@@ -45,5 +45,23 @@ describe('Dota2Client instance', function () {
                 expect(typeof league.then).toBe('function');
             });
         })
-    })
+    });
+    describe('liveLeagueGames()', function () {
+        it('should exist', function () {
+            expect(typeof client.liveLeagueGames).toBe('function');
+        });
+        it('should define default values for league listing', function () {
+            var league = client.liveLeagueGames();
+            expect(league._gameName).toBe('IDOTA2Match');
+            expect(league._gameId).toBe(570);
+            expect(league._apiName).toBe('GetLiveLeagueGames');
+            expect(league._version).toBe('v1');
+        });
+        describe('then()', function () {
+            it('should exist', function () {
+                var league = client.liveLeagueGames();
+                expect(typeof league.then).toBe('function');
+            });
+        })
+    });
 });
