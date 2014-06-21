@@ -15,12 +15,12 @@ Dota2Client.prototype.matchHistory = function () {
     var builder = createNewBuilder.apply(this);
     builder.apiName('GetMatchHistory');
     builder.version('v1');
-    builder.addMethod('playerName', 'player_name');
+    // builder.addMethod('playerName', 'player_name');
     builder.addMethod('heroId', 'hero_id');
     builder.addMethod('gameMode', 'game_mode');
     builder.addMethod('skill', 'skill');
-    builder.addMethod('dateMinimum', 'date_min');
-    builder.addMethod('dateMaximum', 'date_max');
+    // builder.addMethod('dateMinimum', 'date_min');
+    // builder.addMethod('dateMaximum', 'date_max');
     builder.addMethod('minimumPlayers', 'min_players');
     builder.addMethod('accountId', 'account_id');
     builder.addMethod('leagueId', 'league_id');
