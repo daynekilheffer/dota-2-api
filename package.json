@@ -12,6 +12,9 @@
   "bugs": {
     "url": "https://github.com/daynekilheffer/dota-2-api/issues"
   },
+  "scripts": {
+    "test": "grunt"
+  },
   "dependencies": {
     "request": "~2.27.0"
   },
