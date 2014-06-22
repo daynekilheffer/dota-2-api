@@ -1,5 +1,7 @@
 # dota-2-api
 API wrapper on top of [steam-web-api](https://github.com/daynekilheffer/steam-web-api)
+
+[![Build Status](https://travis-ci.org/daynekilheffer/dota-2-api.svg?branch=master)](https://travis-ci.org/daynekilheffer/dota-2-api)
 ## Usage
 ```javascript
 var dota = require('dota-2-api');
