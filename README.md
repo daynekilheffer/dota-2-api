@@ -1,7 +1,7 @@
 # dota-2-api
 API wrapper on top of [steam-web-api](https://github.com/daynekilheffer/steam-web-api)
 ## Usage
-```
+```javascript
 var dota = require('dota-2-api');
 
 // create a new steam client
