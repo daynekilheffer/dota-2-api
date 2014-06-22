@@ -24,7 +24,7 @@ Dota2Client.prototype.matchHistory = function () {
     builder.addMethod('minimumPlayers', 'min_players');
     builder.addMethod('accountId', 'account_id');
     builder.addMethod('leagueId', 'league_id');
-    builder.addMethod('startingMatchId', 'starting_match_id');
+    builder.addMethod('startAtMatchId', 'start_at_match_id');
     builder.addMethod('tournamentGamesOnly', 'tournament_games_only');
     builder.addMethod('maximumMatches', 'matches_requested');
     return builder.build();
