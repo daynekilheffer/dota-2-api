@@ -19,7 +19,6 @@ node_modules
 
 # app specific
 steam.config.js
-lib
 reports
 
 # editor specific
