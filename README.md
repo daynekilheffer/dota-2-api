@@ -24,7 +24,7 @@ client.matchHistory().accountId(<account id>).then(function(error, body) {
 ```
 ## API
 All APIs contain a `then(callback)` function which will execute the request to steam and return error and body values.
-```
+```javascript
 client.matchHistory().then(function(error, body) {
   if (error) {
     // handle error
@@ -33,7 +33,7 @@ client.matchHistory().then(function(error, body) {
 })
 ```
 ### matchHistory()
-```
+```javascript
 client.matchHistory()
   .heroId(<hero id>)
   .gameMode(<game mode>)
@@ -48,20 +48,20 @@ client.matchHistory()
 ```
 
 ### matchDetails()
-```
+```javascript
 client.matchDetails()
   .matchId(<match id>)
   .then(...)
 ```
 
 ### leagueListing()
-```
+```javascript
 client.leagueListing()
   .then(...)
 ```
 
 ### liveLeagueGames()
-```
+```javascript
 client.liveLeagueGames()
   .then(...)
 ```
