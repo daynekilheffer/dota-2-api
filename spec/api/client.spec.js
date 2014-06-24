@@ -1,6 +1,8 @@
 describe('Dota2Client instance', function () {
     var client,
-        steam = {};
+        steam = {
+            execute: function () {}
+        };
     beforeEach(function () {
         var Dota2Client = require('../../api/client');
         client = new Dota2Client({steam: steam});
@@ -26,6 +28,14 @@ describe('Dota2Client instance', function () {
                 var history = client.matchHistory();
                 expect(typeof history.then).toBe('function');
             });
+            it('should call steam', function () {
+                spyOn(steam, 'execute');
+                var history = client.matchHistory();
+                history.then(function() {});
+                expect(steam.execute.mostRecentCall.args[0]).toBe('IDOTA2Match_570');
+                expect(steam.execute.mostRecentCall.args[1]).toBe('GetMatchHistory/v1');
+                expect(steam.execute.mostRecentCall.args[2]).toBe(history._parameters);
+            });
         });
     });
     describe('leagueListing()', function () {
@@ -43,6 +53,14 @@ describe('Dota2Client instance', function () {
             it('should exist', function () {
                 var league = client.leagueListing();
                 expect(typeof league.then).toBe('function');
+            });
+            it('should call steam', function () {
+                spyOn(steam, 'execute');
+                var league = client.leagueListing();
+                league.then(function() {});
+                expect(steam.execute.mostRecentCall.args[0]).toBe('IDOTA2Match_570');
+                expect(steam.execute.mostRecentCall.args[1]).toBe('GetLeagueListing/v1');
+                expect(steam.execute.mostRecentCall.args[2]).toBe(league._parameters);
             });
         })
     });
@@ -62,6 +80,14 @@ describe('Dota2Client instance', function () {
                 var league = client.liveLeagueGames();
                 expect(typeof league.then).toBe('function');
             });
+            it('should call steam', function () {
+                spyOn(steam, 'execute');
+                var league = client.liveLeagueGames();
+                league.then(function() {});
+                expect(steam.execute.mostRecentCall.args[0]).toBe('IDOTA2Match_570');
+                expect(steam.execute.mostRecentCall.args[1]).toBe('GetLiveLeagueGames/v1');
+                expect(steam.execute.mostRecentCall.args[2]).toBe(league._parameters);
+            });
         })
     });
     describe('items()', function () {
@@ -80,6 +106,30 @@ describe('Dota2Client instance', function () {
                 var items = client.items();
                 expect(typeof items.then).toBe('function');
             });
+            it('should call steam', function () {
+                spyOn(steam, 'execute');
+                var items = client.items();
+                items.then(function() {});
+                expect(steam.execute.mostRecentCall.args[0]).toBe('IEconDOTA2_570');
+                expect(steam.execute.mostRecentCall.args[1]).toBe('GetGameItems/v1');
+                expect(steam.execute.mostRecentCall.args[2]).toBe(items._parameters);
+            });
+        });
+    });
+    describe('api().then()', function () {
+        it('should create an callback that calls the supplied callback', function () {
+            var testApi = client.matchHistory(),
+                called = false;
+
+            spyOn(steam, 'execute');
+
+            testApi.then(function () {
+                called = true;
+            });
+
+            expect(typeof steam.execute.mostRecentCall.args[3]).toBe('function');
+            steam.execute.mostRecentCall.args[3]();
+            expect(called).toBe(true);
         });
     });
 });
