@@ -38,6 +38,36 @@ describe('Dota2Client instance', function () {
             });
         });
     });
+    describe('matchDetails()', function () {
+        it('should exist', function () {
+            expect(typeof client.matchDetails).toBe('function');
+        });
+        it('should define default values for match details', function () {
+            var details = client.matchDetails();
+            expect(details._gameName).toBe('IDOTA2Match');
+            expect(details._gameId).toBe(570);
+            expect(details._apiName).toBe('GetMatchDetails');
+            expect(details._version).toBe('v1');
+        });
+        it('should define setter methods', function () {
+            var details = client.matchDetails();
+            expect(typeof details.matchId).toBe('function');
+        });
+        describe('then()', function () {
+            it('should exist', function () {
+                var details = client.matchDetails();
+                expect(typeof details.then).toBe('function');
+            });
+            it('should call steam', function () {
+                spyOn(steam, 'execute');
+                var details = client.matchDetails();
+                details.then(function() {});
+                expect(steam.execute.mostRecentCall.args[0]).toBe('IDOTA2Match_570');
+                expect(steam.execute.mostRecentCall.args[1]).toBe('GetMatchDetails/v1');
+                expect(steam.execute.mostRecentCall.args[2]).toBe(details._parameters);
+            });
+        });
+    });
     describe('leagueListing()', function () {
         it('should exist', function () {
             expect(typeof client.leagueListing).toBe('function');
