@@ -64,4 +64,22 @@ describe('Dota2Client instance', function () {
             });
         })
     });
+    describe('items()', function () {
+        it('should exist', function () {
+            expect(typeof client.items).toBe('function');
+        });
+        it('should define default values for items', function () {
+            var items = client.items();
+            expect(items._gameName).toBe('IEconDOTA2');
+            expect(items._gameId).toBe(570);
+            expect(items._apiName).toBe('GetGameItems');
+            expect(items._version).toBe('v1');
+        });
+        describe('then()', function () {
+            it('should exist', function () {
+                var items = client.items();
+                expect(typeof items.then).toBe('function');
+            });
+        });
+    });
 });

@@ -52,4 +52,15 @@ Dota2Client.prototype.liveLeagueGames = function () {
     return builder.build();
 }
 
+Dota2Client.prototype.items = function () {
+    var builder = createNewBuilder.apply(this);
+    builder.gameName('IEconDOTA2');
+    builder.gameId(570);
+    builder.apiName('GetGameItems');
+    builder.version('v1');
+    builder.addMethod('language', 'language');
+    return builder.build();
+}
+
 module.exports = Dota2Client;
+

@@ -67,3 +67,10 @@ client.leagueListing()
 client.liveLeagueGames()
   .then(...)
 ```
+
+### items()
+```javascript
+client.items()
+  .language(<language>)
+  .then(...)
+```
