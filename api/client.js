@@ -30,7 +30,17 @@ Dota2Client.prototype.matchHistory = function () {
     return builder.build();
 }
 
-Dota2Client.prototype.matchDetails= function () {
+Dota2Client.prototype.matchHistoryBySequenceNumber = function () {
+    var builder = createNewBuilder.apply(this);
+    builder.apiName('GetMatchHistoryBySequenceNum');
+    builder.version('v1');
+    builder.addMethod('startingSequenceNumber', 'start_at_match_seq_num');
+    builder.addMethod('maximumMatches', 'matches_requested');
+    return builder.build();
+
+}
+
+Dota2Client.prototype.matchDetails = function () {
     var builder = createNewBuilder.apply(this);
     builder.apiName('GetMatchDetails');
     builder.version('v1');

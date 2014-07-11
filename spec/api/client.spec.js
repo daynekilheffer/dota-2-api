@@ -68,6 +68,37 @@ describe('Dota2Client instance', function () {
             });
         });
     });
+    describe('matchHistoryBySequenceNumber()', function () {
+        it('should exist', function () {
+            expect(typeof client.matchHistoryBySequenceNumber).toBe('function');
+        });
+        it('should define default values for match history by sequence number', function () {
+            var history = client.matchHistoryBySequenceNumber();
+            expect(history._gameName).toBe('IDOTA2Match');
+            expect(history._gameId).toBe(570);
+            expect(history._apiName).toBe('GetMatchHistoryBySequenceNum');
+            expect(history._version).toBe('v1');
+        });
+        it('should define setter methods', function () {
+            var history = client.matchHistoryBySequenceNumber();
+            expect(typeof history.startingSequenceNumber).toBe('function');
+            expect(typeof history.maximumMatches).toBe('function');
+        });
+        describe('then()', function () {
+            it('should exist', function () {
+                var history = client.matchHistoryBySequenceNumber();
+                expect(typeof history.then).toBe('function');
+            });
+            it('should call steam', function () {
+                spyOn(steam, 'execute');
+                var history = client.matchHistoryBySequenceNumber();
+                history.then(function() {});
+                expect(steam.execute.mostRecentCall.args[0]).toBe('IDOTA2Match_570');
+                expect(steam.execute.mostRecentCall.args[1]).toBe('GetMatchHistoryBySequenceNum/v1');
+                expect(steam.execute.mostRecentCall.args[2]).toBe(history._parameters);
+            });
+        });
+    });
     describe('leagueListing()', function () {
         it('should exist', function () {
             expect(typeof client.leagueListing).toBe('function');

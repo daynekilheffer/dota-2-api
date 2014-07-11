@@ -49,6 +49,14 @@ client.matchHistory()
   .then(...)
 ```
 
+### matchHistoryBySequenceNumber()
+```javascript
+client.matchHistoryBySequenceNumber()
+  .startingSequenceNumber(<match sequence number>)
+  .maximumMatches(<maximum number of matches to return>)
+  .then(...)
+```
+
 ### matchDetails()
 ```javascript
 client.matchDetails()
