@@ -13,6 +13,5 @@ var client = new dota.client({
 });
 
 client.matchHistoryBySequenceNumber().startingSequenceNumber(process.argv[2]).then(function(error, body) {
-    var results = JSON.parse(body);
-    console.log(results.result.matches.length);
+    console.log(body);
 });
