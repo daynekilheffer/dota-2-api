@@ -1,3 +1,0 @@
-[submodule "lib/steam-web-api"]
-	path = lib/steam-web-api
-	url = https://github.com/daynekilheffer/steam-web-api.git

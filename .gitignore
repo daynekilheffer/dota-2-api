@@ -20,6 +20,7 @@ node_modules
 # app specific
 steam.config.js
 reports
+.nyc-output
 
 # editor specific
 .c9*

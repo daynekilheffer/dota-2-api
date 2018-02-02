@@ -1,17 +1,14 @@
-var dota = require('..');
-
-var steamClient = new dota.steam.WebClient(require('../../steam-web-api/steam.config'));
-
-if (process.argv.length !== 3) {
-    console.log('usage: node matchDetails.js <matchId>');
-    process.exit(0);
-}
-
-steamClient.use(new dota.steam.connectionFactories.Throttled(1000));
-var client = new dota.client({
-    steam: steamClient
+var inspect = require('eyes').inspector({
+    maxLength: 2048
 });
+const dota2 = require('..');
 
-client.matchDetails().matchId(process.argv[2]).then(function(error, body) {
-    console.log(body);
-});
+const client = dota2(process.env.STEAM_KEY, {
+    connectionFactory: dota2.factories.throttled(1000),
+})
+
+client.matchDetails()
+    .matchId(process.argv[2])
+    .exec()
+    .then(inspect)
+    .catch(console.error)
